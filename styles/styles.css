@@ -1,0 +1,127 @@
+/************************************HEADER************************************/
+header {
+    padding: 20px;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    width: 180px;
+}
+
+.nav-logo img {
+    width: 100%;
+}
+
+.filterPage {
+    display: flex;
+    height: 30px;
+}
+
+.buttonSearch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonSearch div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+}
+
+.buttonSearch img {
+    width: 100%;
+}
+
+.loggedInUser {
+    display: none;
+    align-items: center;
+}
+
+.loggedInUser div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 15px;
+    width: 25px;
+}
+
+.loggedInUser img {
+    margin: 0 5px;
+    width: 100%;
+}
+
+.usersLogReg {
+    display: flex;
+}
+
+.separator {
+    border-left: 2px solid #ccc; /* Puedes ajustar el color y el grosor según tus preferencias */
+    height: 20px; /* Ajusta la altura según sea necesario */
+    margin: 20px 10px; /* Puedes ajustar el margen según sea necesario */
+    display: inline-block; /* Hace que el span se comporte como un elemento en línea */
+    vertical-align: middle; /* Alinea el span verticalmente con el texto adyacente */
+}
+
+#formContainer {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 79px;
+    background-color: #FFFF;
+    height: 105px;
+    padding: 20px;
+    border-radius: 0 0 0 10px;
+}
+
+#formContainer div {
+    display: block;
+}
+
+#formContainer h2 {
+    display: flex;
+    justify-content: baseline;
+    margin: 0;
+}
+
+#formContainer input {
+    width: 150px;
+    margin: 10px 0;
+    display: block;
+}
+
+#formContainer input::placeholder {
+    font-size: 16px;
+}
+
+#formContainer button {
+    font-size: 16px;
+    border: none;
+    color: #FFFF;
+    background-color: black;
+    border-radius: 2px;
+    padding: 3px 20px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#formContainer button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+/*************************************MAIN*************************************/
+main {
+    border-top: 1px rgb(255, 255, 255) solid;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(231, 231, 231);
+}
+
+
+/************************************FOOTER************************************/
