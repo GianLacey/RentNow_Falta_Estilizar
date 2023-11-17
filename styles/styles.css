@@ -62,11 +62,11 @@ header {
 }
 
 .separator {
-    border-left: 2px solid #ccc; /* Puedes ajustar el color y el grosor según tus preferencias */
-    height: 20px; /* Ajusta la altura según sea necesario */
-    margin: 20px 10px; /* Puedes ajustar el margen según sea necesario */
-    display: inline-block; /* Hace que el span se comporte como un elemento en línea */
-    vertical-align: middle; /* Alinea el span verticalmente con el texto adyacente */
+    border-left: 2px solid #ccc; 
+    height: 20px; 
+    margin: 20px 10px; 
+    display: inline-block; 
+    vertical-align: middle; 
 }
 
 #formContainer {
@@ -118,10 +118,123 @@ header {
 /*************************************MAIN*************************************/
 main {
     border-top: 1px rgb(255, 255, 255) solid;
-    width: 100%;
-    height: 100vh;
-    background-color: rgb(231, 231, 231);
+    display: block;
+    overflow: hidden;
+}
+
+.contFlex {
+    display: flex;
+}
+
+.filter {
+    padding: 20px 0;
+   
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+.tittleBrand {
+    padding: 0px 14px;
+}
+
+.filter-item {
+    margin-bottom: 0px;
+}
+
+.filter-item p {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    margin-left: 20px;
+}
+
+.filter-content {
+    margin: 0;
+    margin-left: 20px; /* Ajusta según tus necesidades */
+
+}
+
+.filter-content ul {
+    margin: 14px;
+}
+
+.filter-content li {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.checkbox {
+    display: inline-block;
+    width: 10px; /* Ajusta según tus necesidades */
+    height: 10px; /* Ajusta según tus necesidades */
+    border: 1px solid #ccc;
+    margin-right: 5px; /* Ajusta según tus necesidades */
+    vertical-align: middle;
+    cursor: pointer;
 }
 
 
+.filter-content ul {
+    padding: 0;
+    list-style: none;
+}
+
+/* Estilo para el "checkbox" marcado */
+.filter-item span.checkbox.checked {
+    background-color: #000000; /* Cambia el color de fondo al hacer clic */
+    border-color: #ffffff; /* Cambia el color del borde al hacer clic */
+    color: #fff; /* Cambia el color del texto al hacer clic */
+}
+
+
+#carsForRent {
+    flex: 1;
+    padding: 0 15px 0 0;
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+}
+
+.carCont {
+    width: 150px;
+    height: 275px;
+    margin: 10px;
+    background-color: #FFFF;
+    padding: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.carCont:hover {
+    transform: scale(1.1);
+}
+
+.img-cont {
+    width: 150px;
+}
+
+.carCont img {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.carCont p {
+    margin: 0 0 10px 0;
+    padding: 0;
+    font-size: 16px;
+}
+.rentNow {
+    width: 100%;
+    padding: 5px 20px;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.rentNow:hover {
+    font-size: 17px;
+    border: 1px gray solid;
+    border-radius: 3px;
+}
 /************************************FOOTER************************************/
