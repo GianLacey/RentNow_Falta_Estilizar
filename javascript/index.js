@@ -214,12 +214,49 @@ storedCarsArray.forEach(car => {
 // Obtiene todos los elementos con la clase 'checkbox'
 let checkboxes = document.querySelectorAll('.checkbox');
 
-// Agrega un listener a cada checkbox
-checkboxes.forEach(function(checkbox) {
-    checkbox.addEventListener('click', function() {
-        this.classList.toggle('checked'); 
+function performSearch() {
+    // Obtén los elementos seleccionados
+    let selectedBrands = document.querySelectorAll('.filter-item.Brand .checkbox.checked');
+    let selectedTypes = document.querySelectorAll('.filter-item.Type .checkbox.checked');
+    let selectedAvailability = document.querySelectorAll('.filter-item.Availability .checkbox.checked');
+
+    // Filtra los autos según los elementos seleccionados
+    let filteredCars = storedCarsArray.filter(car => {
+        const brandFilter = selectedBrands.length === 0 || Array.from(selectedBrands).some(filter => car.brand.toLowerCase() === filter.id);
+        const typeFilter = selectedTypes.length === 0 || Array.from(selectedTypes).some(filter => car.type.toLowerCase() === filter.id);
+        const availabilityFilter = selectedAvailability.length === 0 || Array.from(selectedAvailability).some(filter => (car.availability && filter.id === 'available') || (!car.availability && filter.id === 'notAvailable'));
+
+        return brandFilter && typeFilter && availabilityFilter;
+    });
+
+    // Limpia el contenedor de autos
+    container.innerHTML = '';
+
+    // Muestra los autos filtrados
+    filteredCars.forEach(car => {
+        const carElement = document.createElement('div');
+        carElement.classList.add("carCont");
+        carElement.innerHTML = `<div class="img-cont"><img src="${car.img}" alt="${car.brand} ${car.model}"></div>
+                                <p><b> ${car.brand}</b></p>
+                                <p> ${car.model}</p>
+                                <p>Price: $${car.price} /Day</p>
+                                <p> ${car.availability ? 'Available' : 'Not Available'}</p>
+                                <button type="button" class="rentNow">Rent Now</button>
+                                `;
+        container.appendChild(carElement);
+    });
+}
+
+// Modifica la función que maneja los clics en los checkboxes
+checkboxes.forEach(function (checkbox) {
+    checkbox.addEventListener('click', function () {
+        this.classList.toggle('checked');
+        // Después de cada clic, realiza la búsqueda
+        performSearch();
     });
 });
+
+
 
 
 
