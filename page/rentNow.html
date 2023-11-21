@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assest/icons/WOTG (ico).png" type="iconpage">
+    <link rel="stylesheet" href="../styles/normalize.css">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <title>Wheels On The Go | Renta de autos | PFGLacey JavaScript</title>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="../assest/logos/WOTG-_2_.webp" alt="logoWOTG">
+            </div>
+
+            <div class="filterPage">
+                <input id="filter" type="text" placeholder="Buscar" autocomplete="off">
+                <button type="button" onclick="performSearch()" class="buttonSearch">
+                    <div><img src="../assest/icons/header/search-svgrepo-com.svg" alt="search"></div></button>
+            </div>
+            <div class="loggedInUser" id="loggedInUser">
+                <div><p id="userLogged"></p><img src="../assest/icons/header/user-alt-1-svgrepo-com.svg" alt="userin"></div>
+                <span class="separator"></span>
+                <a href="../index.html" class="logout-rentNow"><p  onclick="logout()">Logout</p></a>
+            </div>
+            <div class="usersLogReg" id="usersLogReg">
+                <p class="signIn" onclick="showForm('Login')">Sign In</p>
+                <span class="separator"></span>
+                <p class="register" onclick="showForm('Register')">Sign Up</p>
+            </div>
+            <div id="formContainer"></div>
+        </div>
+    </header>
+
+    <main class="mainRentNow">
+        <div id="selectedCarContainer" class="carCont2">
+
+        </div>
+    </main>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="../javascript/index.js"></script>
+</body>
+</html>

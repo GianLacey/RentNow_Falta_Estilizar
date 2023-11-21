@@ -61,12 +61,29 @@ header {
     display: flex;
 }
 
+.signIn {
+    cursor: pointer;
+}
+
+.register {
+    cursor: pointer;
+}
+
+.logout {
+    cursor: pointer;
+}
+
 .separator {
     border-left: 2px solid #ccc; 
     height: 20px; 
     margin: 20px 10px; 
     display: inline-block; 
     vertical-align: middle; 
+}
+
+.logout-rentNow {
+    text-decoration: none;
+    color: #000000;
 }
 
 #formContainer {
@@ -237,4 +254,97 @@ main {
     border: 1px gray solid;
     border-radius: 3px;
 }
+
+
+/*************************************MAIN RENT NOW*************************************/
+
+.mainRentNow {
+    display: flex;
+    justify-content: center;
+}
+
+.carCont2 {
+    display: block;
+    width: 550px;
+    margin: 10px;
+    background-color: #FFFF;
+    padding: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.infoCarRent {
+    display: block;
+    justify-content: space-between;
+    width: 1000px;
+}
+
+.formToRent {
+    display:flex;
+    align-items: center;
+}
+
+.formToRent label {
+    display: flex;
+    margin: 5px 0;
+    padding: 10px;
+}
+
+.formToRent input {
+    height: 20px;
+    width: 100px;
+}
+
+.infoCarRent .back {
+    font-size: 16px;
+    border: 1px solid black;
+    color: #000000;
+    background-color: rgb(255, 255, 255);
+    border-radius: 2px;
+    padding: 3px 20px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.infoCarRent button {
+    font-size: 16px;
+    border: 1px solid black;
+    color: #FFFF;
+    background-color: black;
+    border-radius: 2px;
+    padding: 3px 20px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+
+
+.infoCarRent button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.img-cont2 {
+    width: 400px;
+    display: flex;
+    justify-content: center;
+}
+
+.carCont2 img {
+    width: 100%;
+    margin-bottom: 15px;
+    
+}
+
+.carCont2 p {
+    width: 150px;
+    margin: 0 0 10px 0;
+    padding: 0;
+    font-size: 19px;
+}
+
+.info {
+    display: flex;
+    justify-content: baseline;
+    width: 60%;
+}
+
 /************************************FOOTER************************************/
