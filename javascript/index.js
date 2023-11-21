@@ -59,6 +59,8 @@ function register() {
     }
 }
 
+let sessionStatus = false;
+
 function login() {
     
     let formCont = document.getElementById("formContainer");
@@ -85,6 +87,7 @@ function login() {
                 timer: 1500,
             });
 
+            
             let loggedInUser = document.getElementById('loggedInUser');
             let userLogged = document.getElementById('userLogged');
             let usersLogReg = document.getElementById('usersLogReg');
@@ -95,11 +98,13 @@ function login() {
 
             userLogged.innerHTML = username.charAt(0).toUpperCase() + username.slice(1).toLowerCase();
 
+            sessionStatus = true;
         } else {
             Swal.fire({
                 icon: 'error',
                 title: 'Incorrect password',
             });
+            sessionStatus = false;
         }
     }
 }
@@ -129,7 +134,7 @@ function logout() {
         },
     });
     
-
+    sessionStatus = false;
 
 }
 
@@ -205,10 +210,24 @@ storedCarsArray.forEach(car => {
                             <p> ${car.model}</p>
                             <p>Price: $${car.price} /Day</p>
                             <p> ${car.availability ? 'Available' : 'Not Available'}</p>
-                            <button type="button" class="rentNow">Rent Now</button>
+                            <button type="button" class="rentNow" onclick="rentNow()">Rent Now</button>
                             `;
     container.appendChild(carElement);
 });
+
+function rentNow(){
+    if(sessionStatus === true){
+
+        
+
+    } else {
+        Swal.fire({
+            icon: 'error',
+            title: 'Log in first',
+        });
+    }
+}
+
 
 //FILTRO ASIDE
 // Obtiene todos los elementos con la clase 'checkbox'
