@@ -217,13 +217,16 @@ main {
     width: 150px;
     height: 275px;
     margin: 10px;
-    background-color: #FFFF;
+    
     padding: 10px;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out,  box-shadow 0.3s ease-in-out;
 }
 
 .carCont:hover {
     transform: scale(1.1);
+    box-shadow: 5px 15px 10px -15px rgba(0, 0, 0, 0.3); 
+    background: linear-gradient(to top, rgba(0, 0, 0, .3), rgba(0, 0, 0, .5), rgba(255, 255, 255, 1),rgba(255, 255, 255, 1),rgba(255, 255, 255, 1));
+    
 }
 
 .img-cont {
