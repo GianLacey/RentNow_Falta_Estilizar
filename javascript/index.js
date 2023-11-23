@@ -1,10 +1,16 @@
+// Cuando la ventana se carga
 window.onload = function (user) {
+    // Recupero el estado de la sesión y la matriz de autos de la sesión o el almacenamiento local
     const savedSessionStatus = sessionStorage.getItem('sessionStatus');
     const storedCarsArrayJSON = sessionStorage.getItem('carsArray') || localStorage.getItem('carsArray');
     const storedCarsArray = JSON.parse(storedCarsArrayJSON);
 
+    // Verifico si la sesión está iniciada y actualizo la interfaz de usuario
     if (savedSessionStatus === 'true') {
+        // Establezco el estado de la sesión como verdadero
         sessionStatus = true;
+
+        // Recupero y muestro la información del usuario logueado
         const savedUsername = sessionStorage.getItem('username');
         let loggedInUser = document.getElementById('loggedInUser');
         let userLogged = document.getElementById('userLogged');
@@ -14,62 +20,71 @@ window.onload = function (user) {
         userLogged.innerHTML = savedUsername.charAt(0).toUpperCase() + savedUsername.slice(1).toLowerCase();
     }
 
+    // Recupero la información del auto seleccionado y actualizo la interfaz
     const selectedCarId = sessionStorage.getItem('selectedCarId');
     const selectedCar = storedCarsArray.find(car => car.id === parseInt(selectedCarId));
     const selectedCarContainer = document.getElementById('selectedCarContainer');
 
+    // Verifico si existe el contenedor del auto seleccionado
     if (selectedCarContainer) {
-
         if (selectedCar) {
+            // Creo un elemento HTML para mostrar la información del auto seleccionado
             const carElement = document.createElement('div');
             carElement.classList.add("carCont2");
             carElement.innerHTML = `<div class="img-cont2"><img src="${selectedCar.img}" alt="${selectedCar.brand} ${selectedCar.model}"></div>
-            <div class="infoCarRent">
-            <div class="info">
-            <p><b>${selectedCar.brand},</b></p>
-            <p>${selectedCar.model}</p>
-            <p>Price: $${selectedCar.price} /Day</p>
-            <p>${selectedCar.availability ? 'Available' : 'Not Available'}</p>
-            </div>
-            <div class="formToRent">
-            <label>Days to rent: </label>
-            <input type="number" class="daysForRent" min="1" value="1" oninput="calculateTotalPrice()"></input>
-            <label>Total price: </label>
-            <input type="text" class="totalPrice" readonly></input>
-            </div>
-            <div>
-            <button class="back" onclick="window.history.back()">Back</button>
-            <button onclick="goToPay()">Go to pay</button></div>
-            </div>`;
+                <div class="infoCarRent">
+                    <div class="info">
+                        <p><b>${selectedCar.brand},</b></p>
+                        <p>${selectedCar.model}</p>
+                        <p>Precio: $${selectedCar.price} /Day</p>
+                        <p>${selectedCar.availability ? 'Available' : 'Not available'}</p>
+                    </div>
+                    <div class="formToRent">
+                        <label>Days for rent: </label>
+                        <input type="number" class="daysForRent" min="1" value="1" oninput="calculateTotalPrice()"></input>
+                        <label>Total: </label>
+                        <input type="text" class="totalPrice" readonly></input>
+                    </div>
+                    <div>
+                        <button class="back" onclick="window.history.back()">Back</button>
+                        <button onclick="goToPay()">Go to pay</button>
+                    </div>
+                </div>`;
             selectedCarContainer.appendChild(carElement);
+
+            // Calculo el precio total
             calculateTotalPrice();
         }
-    } else {
+    } else {        
         console.log('');
     }
 };
 
+// Función para mostrar un formulario de inicio de sesión o registro
 function showForm(formId){
     let formCont = document.getElementById("formContainer");
     formCont.innerHTML = "";
     let div = document.createElement("div");
     if (formId === 'Login') {
-        div.innerHTML = "<input type='text' id='loginUsername' placeholder='User'> <input type='password' id='loginPassword' placeholder='Password'> <button onclick='login()'>Login</button>";
+        div.innerHTML = "<input type='text' id='loginUsername' placeholder='User'> <input type='password' id='loginPassword' placeholder='Password'> <button onclick='login()'>Iniciar sesión</button>";
     } else if (formId === 'Register') {
-        div.innerHTML = "<input type='text' id='registerUsername' placeholder='User'> <input type='password' id='registerPassword' placeholder='Password'> <button onclick='register()'>Register</button>";
+        div.innerHTML = "<input type='text' id='registerUsername' placeholder='User'> <input type='password' id='registerPassword' placeholder='Password'> <button onclick='register()'>Registrarse</button>";
     }
     formCont.appendChild(div);
     formCont.style.display = formCont.style.display ==="none" ? "block" : "none";
 }
 
+// Función para verificar si un usuario ya está registrado
 function userAlreadyRegistered(registeredUsers, username) {
     return registeredUsers.some(function(users) {
         return users.username === username;
     });
 }
 
+// Estado de la sesión
 let sessionStatus = false;
 
+// Función para registrar un nuevo usuario
 function register() {
     if(document.querySelector('#registerUsername').value && document.querySelector('#registerPassword').value != "") {
         let username = document.getElementById('registerUsername').value;
@@ -79,7 +94,7 @@ function register() {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'The user is already registered',
+                text: 'User already register',
             });
         } else {
             let newUser = { username: username, password: password};
@@ -87,7 +102,7 @@ function register() {
             localStorage.setItem('registeredUsers', JSON.stringify(registeredUsers));
             Swal.fire({
                 icon: 'success',
-                title: 'Successful registration',
+                title: 'Success register',
                 showConfirmButton: false,
                 timer: 1500,
             });
@@ -108,11 +123,12 @@ function register() {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: 'You must complete',
+            text: 'All complete',
         });
     }
 }
 
+// Función para iniciar sesión
 function login() {
     let formCont = document.getElementById("formContainer");
     let username = document.getElementById('loginUsername').value;
@@ -123,13 +139,13 @@ function login() {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: 'Unregistered user',
+            text: 'User not register',
         });
     } else {
         if (user.password === password) {
             Swal.fire({
                 icon: 'success',
-                title: 'Successful login',
+                title: 'Success login',
                 showConfirmButton: false,
                 timer: 1500,
             });
@@ -147,20 +163,21 @@ function login() {
         } else {
             Swal.fire({
                 icon: 'error',
-                title: 'Incorrect password',
+                title: 'Wrong password',
             });
             sessionStatus = false;
         }
     }
 }
 
+// Función para cerrar sesión
 function logout() {
     let loggedInUser = document.getElementById('loggedInUser');
     let usersLogReg = document.getElementById('usersLogReg');
     loggedInUser.style.display = "none";
     usersLogReg.style.display = "flex";
     Swal.fire({
-        title: 'Thank you for visiting us!',
+        title: 'Thanks for visiting',
         customClass: {
             title: 'my-title-class',
         },
@@ -180,6 +197,7 @@ function logout() {
     sessionStorage.removeItem('username');
 }
 
+// Defino la clase para representar un auto disponible para alquiler
 function carForRent(brand, model, price, availability, img, type, id) {
     this.brand = brand;
     this.model = model;
@@ -190,14 +208,17 @@ function carForRent(brand, model, price, availability, img, type, id) {
     this.id = id;
 }
 
+// Inicializo un array de autos
 const carsArray = [];
 const jsonFilePath = './JSON/carsData.json';
 const storedCarsArray = JSON.parse(localStorage.getItem('carsArray'));
 window.storedCarsArray = storedCarsArray;
 
+// Obtengo datos de autos a través de una solicitud fetch
 fetch(jsonFilePath)
     .then(response => response.json())
     .then(data => {
+        // Agrego los datos al array de autos
         carsArray.push(...data);
         const carsArrayJSON = JSON.stringify(carsArray);
         localStorage.setItem('carsArray', carsArrayJSON);
@@ -205,12 +226,13 @@ fetch(jsonFilePath)
         const container = document.getElementById('carsForRent');
         if (container && storedCarsArray) {
             storedCarsArray.forEach(car => {
+                // Creo elementos HTML para mostrar la información de los autos disponibles
                 const carElement = document.createElement('div');
                 carElement.classList.add("carCont");
                 carElement.innerHTML = `<div class="img-cont"><img src="${car.img}" alt="${car.brand} ${car.model}"></div>
                                         <p><b> ${car.brand}</b></p>
                                         <p> ${car.model}</p>
-                                        <p>Price: $${car.price} /Day</p>
+                                        <p>Precio: $${car.price} /Día</p>
                                         <p> ${car.availability ? 'Available' : 'Not Available'}</p>
                                         <button type="button" id="${car.id}" class="rentNow" onclick="rentNow(${car.id})">Rent Now</button>`;
                 container.appendChild(carElement);
@@ -219,6 +241,7 @@ fetch(jsonFilePath)
     })
     .catch(error => console.log());
 
+// Función para alquilar un auto
 function rentNow(carId){
     if(sessionStatus === true){
         sessionStorage.setItem('selectedCarId', carId);
@@ -226,11 +249,12 @@ function rentNow(carId){
     } else {
         Swal.fire({
             icon: 'error',
-            title: 'Log in first',
+            title: 'Login first',
         });
     }
 }
 
+// Función para calcular el precio total según los días de alquiler ingresados
 function calculateTotalPrice() {
     const daysForRent = document.querySelector('.daysForRent').value;
     const selectedCarPrice = storedCarsArray.find(car => car.id === parseInt(sessionStorage.getItem('selectedCarId'))).price;
@@ -239,11 +263,13 @@ function calculateTotalPrice() {
     totalPriceInput.value = `$${totalPrice}`;
 }
 
+// Función para ir a la página de pago
 function goToPay() {
     const totalPrice = document.querySelector('.totalPrice').value;
     const selectedCarId = sessionStorage.getItem('selectedCarId');
     const selectedCar = storedCarsArray.find(car => car.id === parseInt(selectedCarId));
     if (selectedCar) {
+        // Actualizo la disponibilidad del auto después de realizar el pago
         selectedCar.availability = false;
         const index = storedCarsArray.findIndex(car => car.id === selectedCar.id);
         if (index !== -1) {
@@ -251,12 +277,12 @@ function goToPay() {
         }
         localStorage.setItem('carsArray', JSON.stringify(storedCarsArray));
         sessionStorage.setItem('carsArray', JSON.stringify(storedCarsArray));
-        console.log('Array de autos después de la actualización:', storedCarsArray);
     } else {
-        console.log('Automóvil no encontrado con el ID:', selectedCarId);
+        console.log('Car not found with ID:', selectedCarId);
     }
+    // Muestro un mensaje de éxito después de realizar el pago
     Swal.fire({
-       title: 'Payment made successfully. Total paid is: ' + totalPrice,
+       title: 'Payment made successfully. Total Paid: ' + totalPrice,
        customClass: {
            title: 'my-title-class',
        },
@@ -271,24 +297,29 @@ function goToPay() {
            title.parentNode.insertBefore(img, title);
         },
     });
+    // Redirijo a la página anterior después de un breve período
     setTimeout(function() {
          window.history.back();
     }, 2500);
 }
 
+// Obtengo todas las casillas de verificación
 let checkboxes = document.querySelectorAll('.checkbox');
 
+// Función para realizar la búsqueda filtrando los autos según los filtros seleccionados
 function performSearch() {
     let selectedBrands = document.querySelectorAll('.filter-item.Brand .checkbox.checked');
     let selectedTypes = document.querySelectorAll('.filter-item.Type .checkbox.checked');
     let selectedAvailability = document.querySelectorAll('.filter-item.Availability .checkbox.checked');
     const container = document.getElementById('carsForRent');
+    // Filtrar los autos según las selecciones
     let filteredCars = storedCarsArray.filter(car => {
         const brandFilter = selectedBrands.length === 0 || Array.from(selectedBrands).some(filter => car.brand.toLowerCase() === filter.id);
         const typeFilter = selectedTypes.length === 0 || Array.from(selectedTypes).some(filter => car.type.toLowerCase() === filter.id);
         const availabilityFilter = selectedAvailability.length === 0 || Array.from(selectedAvailability).some(filter => (car.availability && filter.id === 'available') || (!car.availability && filter.id === 'notAvailable'));
         return brandFilter && typeFilter && availabilityFilter;
     });
+    // Limpiar el contenedor y mostrar los autos filtrados
     container.innerHTML = '';
     filteredCars.forEach(car => {
         const carElement = document.createElement('div');
@@ -296,13 +327,14 @@ function performSearch() {
         carElement.innerHTML = `<div class="img-cont"><img src="${car.img}" alt="${car.brand} ${car.model}"></div>
                                 <p><b> ${car.brand}</b></p>
                                 <p> ${car.model}</p>
-                                <p>Price: $${car.price} /Day</p>
+                                <p>Precio: $${car.price} /Día</p>
                                 <p> ${car.availability ? 'Available' : 'Not Available'}</p>
                                 <button type="button" class="rentNow" onclick="rentNow(${car.id})">Rent Now</button>`;
         container.appendChild(carElement);
     });
 }
 
+// Manejador de eventos para las casillas de verificación
 checkboxes.forEach(function (checkbox) {
     checkbox.addEventListener('click', function () {
         this.classList.toggle('checked');
@@ -310,6 +342,7 @@ checkboxes.forEach(function (checkbox) {
     });
 });
 
+// Función para realizar la búsqueda según el texto ingresado en el campo de búsqueda
 function inputSearch() {
     const searchText = document.getElementById('filter').value.toLowerCase();
     const carElements = document.querySelectorAll('.carCont');
@@ -322,3 +355,6 @@ function inputSearch() {
         }
     });
 }
+
+
+
