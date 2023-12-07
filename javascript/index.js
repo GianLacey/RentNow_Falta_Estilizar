@@ -210,7 +210,7 @@ function carForRent(brand, model, price, availability, img, type, id) {
 
 // Inicializo un array de autos
 const carsArray = [];
-const jsonFilePath = './JSON/carsData.json';
+const jsonFilePath = 'https://ya4an.github.io/ProyectoFinalJSLacey/JSON/carsData.json';
 const storedCarsArray = JSON.parse(localStorage.getItem('carsArray'));
 window.storedCarsArray = storedCarsArray;
 
