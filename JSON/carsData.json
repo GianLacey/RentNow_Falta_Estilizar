@@ -13,7 +13,7 @@
       "model": "S10 Simple Cabin",
       "price": 200,
       "availability": true,
-      "img": "../assest/imagenes/rental_car/cvrlt/cab-simples.webp",
+      "img": "./assest/imagenes/rental_car/cvrlt/cab-simples.webp",
       "type": "van",
       "id": 2
     },
@@ -22,7 +22,7 @@
       "model": "Camaro Cupe",
       "price": 300,
       "availability": true,
-      "img": "../assest/imagenes/rental_car/cvrlt/camaro-interior1.png",
+      "img": "./assest/imagenes/rental_car/cvrlt/camaro-interior1.png",
       "type": "sport-car",
       "id": 3
     },
@@ -31,7 +31,7 @@
       "model": "Tahoe",
       "price": 200,
       "availability": true,
-      "img": "../assest/imagenes/rental_car/cvrlt/CHEVROLET_TAHOE_2016.webp",
+      "img": "./assest/imagenes/rental_car/cvrlt/CHEVROLET_TAHOE_2016.webp",
       "type": "family-van",
       "id": 4
     },
@@ -40,7 +40,7 @@
       "model": "Cruze Final",
       "price": 100,
       "availability": true,
-      "img": "../assest/imagenes/rental_car/cvrlt/chevrolet-cruze-final.webp",
+      "img": "./assest/imagenes/rental_car/cvrlt/chevrolet-cruze-final.webp",
       "type": "family-car",
       "id": 5
     },
@@ -49,7 +49,7 @@
       "model": "Corsa Classic",
       "price": 100,
       "availability": true,
-      "img": "../assest/imagenes/rental_car/cvrlt/corsa-classic.webp",
+      "img": "./assest/imagenes/rental_car/cvrlt/corsa-classic.webp",
       "type": "family-car",
       "id": 6
     },
@@ -58,7 +58,7 @@
       "model": "Camaro Cupe",
       "price": 300,
       "availability": true,
-      "img": "../assest/imagenes/rental_car/cvrlt/novo-camaro-cupe.webp",
+      "img": "./assest/imagenes/rental_car/cvrlt/novo-camaro-cupe.webp",
       "type": "sport-car",
       "id": 7
     },
@@ -67,7 +67,7 @@
       "model": "Expedition",
       "price": 100,
       "availability": true,
-      "img": "../assest/imagenes/rental_car/ford/ford-expedition.webp",
+      "img": "./assest/imagenes/rental_car/ford/ford-expedition.webp",
       "type": "family-car",
       "id": 8
     },
@@ -76,7 +76,7 @@
       "model": "Focus",
       "price": 200,
       "availability": true,
-      "img": "../assest/imagenes/rental_car/ford/ford-focus.jpg",
+      "img": "./assest/imagenes/rental_car/ford/ford-focus.jpg",
       "type": "family-van",
       "id": 9
     },
@@ -85,7 +85,7 @@
       "model": "Mustang",
       "price": 300,
       "availability": true,
-      "img": "../assest/imagenes/rental_car/ford/ford-mustang.webp",
+      "img": "./assest/imagenes/rental_car/ford/ford-mustang.webp",
       "type": "sport-car",
       "id": 10
     },
@@ -94,7 +94,7 @@
       "model": "Mustang",
       "price": 300,
       "availability": true,
-      "img": "../assest/imagenes/rental_car/ford/ford-mustang-r.webp",
+      "img": "./assest/imagenes/rental_car/ford/ford-mustang-r.webp",
       "type": "sport-car",
       "id": 11
     },
@@ -112,7 +112,7 @@
       "model": "Ranger Simple Cabin",
       "price": 200,
       "availability": true,
-      "img": "../assest/imagenes/rental_car/ford/Ford-Ranger-Cabina-Simple.jpg",
+      "img": "./assest/imagenes/rental_car/ford/Ford-Ranger-Cabina-Simple.jpg",
       "type": "van",
       "id": 13
     },
@@ -121,7 +121,7 @@
       "model": "Ranger Raptor",
       "price": 300,
       "availability": true,
-      "img": "../assest/imagenes/rental_car/ford/Ford-Ranger-Raptor.jpg",
+      "img": "./assest/imagenes/rental_car/ford/Ford-Ranger-Raptor.jpg",
       "type": "van",
       "id": 14
     },
@@ -130,7 +130,7 @@
       "model": "Amarok",
       "price": 200,
       "availability": true,
-      "img": "../assest/imagenes/rental_car/vkwgn/amarok.png",
+      "img": "./assest/imagenes/rental_car/vkwgn/amarok.png",
       "type": "van",
       "id": 15
     },
@@ -139,7 +139,7 @@
       "model": "Nivus",
       "price": 200,
       "availability": true,
-      "img": "../assest/imagenes/rental_car/vkwgn/volk-nivus.webp",
+      "img": "./assest/imagenes/rental_car/vkwgn/volk-nivus.webp",
       "type": "family-van",
       "id": 16
     },
@@ -148,7 +148,7 @@
       "model": "Polo",
       "price": 100,
       "availability": true,
-      "img": "../assest/imagenes/rental_car/vkwgn/vw-polo.jpg",
+      "img": "./assest/imagenes/rental_car/vkwgn/vw-polo.jpg",
       "type": "family-car",
       "id": 17
     },
@@ -157,7 +157,7 @@
       "model": "Sciroco",
       "price": 300,
       "availability": true,
-      "img": "../assest/imagenes/rental_car/vkwgn/vw-sciroco.webp",
+      "img": "./assest/imagenes/rental_car/vkwgn/vw-sciroco.webp",
       "type": "sport-car",
       "id": 18
     },
@@ -166,7 +166,7 @@
       "model": "Tiguan",
       "price": 200,
       "availability": true,
-      "img": "../assest/imagenes/rental_car/vkwgn/vw-tiguan.jpg",
+      "img": "./assest/imagenes/rental_car/vkwgn/vw-tiguan.jpg",
       "type": "family-van",
       "id": 19
     },
@@ -175,7 +175,7 @@
       "model": "Vento",
       "price": 100,
       "availability": true,
-      "img": "../assest/imagenes/rental_car/vkwgn/vw-vento.png",
+      "img": "./assest/imagenes/rental_car/vkwgn/vw-vento.png",
       "type": "family-car",
       "id": 20
     }
