@@ -4,7 +4,7 @@
       "model": "S10 Double Cabin",
       "price": 200,
       "availability": true,
-      "img": "../assest/imagenes/rental_car/cvrlt/cab-dupla.webp",
+      "img": "./assest/imagenes/rental_car/cvrlt/cab-dupla.webp",
       "type": "van",
       "id": 1
     },
